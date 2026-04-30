@@ -39,6 +39,23 @@
   padding: 8px 0;
 }
 
+@media (max-width: 600px) {
+  .sidebar {
+    width: max-content;
+    min-width: 0;
+  }
+
+  .sidebar-heading {
+    padding: 6px 10px 4px;
+  }
+
+  .sidebar-item {
+    padding: 6px 10px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+}
+
 .sidebar-section {
   margin-bottom: 8px;
 }
