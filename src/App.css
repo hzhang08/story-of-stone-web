@@ -136,6 +136,7 @@
   cursor: pointer;
   transition: transform 0.12s, box-shadow 0.12s;
   border: 1px solid #333;
+  min-width: 0; /* allow grid item to shrink below content size */
 }
 
 .position-card:hover {
@@ -145,9 +146,10 @@
 }
 
 .position-card canvas {
-  width: 100% !important;
-  height: auto !important;
+  width: 100%;
+  height: auto;
   aspect-ratio: 1;
+  display: block;
   border-radius: 3px;
 }
 

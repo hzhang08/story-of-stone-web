@@ -21,21 +21,20 @@ export default function GoBoard({ boardSize = 19, stones = [], lastMove = null, 
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
-    canvas.width = size * dpr;
-    canvas.height = size * dpr;
-    canvas.style.width = size + 'px';
-    canvas.style.height = size + 'px';
+    const displaySize = canvas.clientWidth || size;
+    canvas.width = displaySize * dpr;
+    canvas.height = displaySize * dpr;
     ctx.scale(dpr, dpr);
 
-    const pad = size / (boardSize + 1);
-    const spacing = (size - 2 * pad) / (boardSize - 1);
+    const pad = displaySize / (boardSize + 1);
+    const spacing = (displaySize - 2 * pad) / (boardSize - 1);
 
     function gridX(col) { return pad + col * spacing; }
     function gridY(row) { return pad + row * spacing; }
 
     // Board background
     ctx.fillStyle = BOARD_COLOR;
-    ctx.fillRect(0, 0, size, size);
+    ctx.fillRect(0, 0, displaySize, displaySize);
 
     // Grid lines
     ctx.strokeStyle = LINE_COLOR;
