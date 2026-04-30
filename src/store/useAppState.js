@@ -34,7 +34,7 @@ export function useAppState() {
       try {
         const results = await Promise.all(
           SGF_FILES.map(async (name) => {
-            const res = await fetch(`/sgf/${encodeURIComponent(name)}`);
+            const res = await fetch(`${import.meta.env.BASE_URL}sgf/${encodeURIComponent(name)}`);
             if (!res.ok) throw new Error(`Failed to load ${name}`);
             const text = await res.text();
             return parseSGF(text, name);
