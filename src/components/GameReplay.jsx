@@ -144,16 +144,16 @@ export default function GameReplay({ filename, gameMoves, boardSize, onClose }) 
         <div className="replay-header">
           <h2>{filename.replace('.sgf', '')}</h2>
           {isMobile && (
-            <div className="mobile-tab-toggle">
-              <button
-                className={`tab-btn${mobileTab === 'board' ? ' active' : ''}`}
-                onClick={() => setMobileTab('board')}
-              >Board</button>
-              <button
-                className={`tab-btn${mobileTab === 'analysis' ? ' active' : ''}`}
-                onClick={() => { setMobileTab('analysis'); setShowAnalysis(true); }}
-              >Analysis</button>
-            </div>
+            <button
+              className="mobile-tab-toggle"
+              onClick={() => {
+                const next = mobileTab === 'board' ? 'analysis' : 'board';
+                setMobileTab(next);
+                if (next === 'analysis') setShowAnalysis(true);
+              }}
+            >
+              {mobileTab === 'board' ? '📊 Analysis' : '⬛ Board'}
+            </button>
           )}
           <button className="close-btn" onClick={onClose}>✕</button>
         </div>

@@ -72,13 +72,13 @@ export default function GoBoard({ boardSize = 19, stones = [], lastMove = null, 
       const r = spacing * 0.38;
       ctx.beginPath();
       ctx.arc(cx, cy, r, 0, 2 * Math.PI);
-      ctx.fillStyle = tm.rank === 1 ? 'rgba(66,133,244,0.75)' : 'rgba(66,133,244,0.35)';
+      ctx.fillStyle = tm.r === 1 ? 'rgba(66,133,244,0.75)' : 'rgba(66,133,244,0.35)';
       ctx.fill();
       ctx.fillStyle = '#fff';
       ctx.font = `bold ${Math.max(8, spacing * 0.28)}px sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(tm.rank, cx, cy);
+      ctx.fillText(tm.r, cx, cy);
     }
 
     // Stones

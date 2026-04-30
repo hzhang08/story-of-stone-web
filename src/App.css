@@ -274,27 +274,16 @@
   border-bottom: 1px solid #2d2d2d;
 }
 
-/* Mobile tab toggle */
+/* Mobile tab toggle — single button */
 .mobile-tab-toggle {
-  display: flex;
-  gap: 4px;
-  flex: 1;
-  justify-content: center;
-}
-
-.tab-btn {
-  padding: 5px 14px;
+  padding: 6px 14px;
   border-radius: 16px;
-  border: 1px solid #444;
-  background: #2a2a2a;
-  color: #aaa;
-  font-size: 13px;
-}
-
-.tab-btn.active {
+  border: 1px solid #4a6fa5;
   background: #2d4a6e;
-  border-color: #4a6fa5;
   color: #90bef0;
+  font-size: 13px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 @media (max-width: 600px) {
