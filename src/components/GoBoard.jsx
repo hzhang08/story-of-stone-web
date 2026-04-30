@@ -21,9 +21,14 @@ export default function GoBoard({ boardSize = 19, stones = [], lastMove = null, 
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
-    const displaySize = canvas.clientWidth || size;
+    // Use CSS-computed width when container controls the size (e.g. position cards),
+    // otherwise fall back to the explicit size prop (e.g. replay modal).
+    const cssWidth = canvas.clientWidth;
+    const displaySize = cssWidth > 0 ? cssWidth : size;
     canvas.width = displaySize * dpr;
     canvas.height = displaySize * dpr;
+    canvas.style.width = displaySize + 'px';
+    canvas.style.height = displaySize + 'px';
     ctx.scale(dpr, dpr);
 
     const pad = displaySize / (boardSize + 1);

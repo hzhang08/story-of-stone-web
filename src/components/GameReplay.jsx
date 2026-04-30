@@ -57,7 +57,15 @@ export default function GameReplay({ filename, gameMoves, boardSize, onClose }) 
   const currentComment = gameMoves.find(m => m.moveNumber === currentMove)?.comment ?? '';
   const winrateNow = fileWinrates[currentMove];
 
-  const boardPixels = Math.min(window.innerWidth * 0.5, 520);
+  // Compute the largest square board that fits in the modal.
+  // Modal: 90vw wide, 92vh tall. Subtract sidebar (260px), header (~50px),
+  // controls + slider + comment (~130px), and padding (32px each axis).
+  const SIDEBAR = 260, H_PAD = 32, V_PAD = 32, HEADER = 50, CONTROLS = 130;
+  const modalW = Math.min(window.innerWidth * 0.9, 1200);
+  const modalH = window.innerHeight * 0.92;
+  const availW = modalW - SIDEBAR - H_PAD;
+  const availH = modalH - HEADER - CONTROLS - V_PAD;
+  const boardPixels = Math.max(200, Math.min(availW, availH));
 
   return (
     <div className="replay-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
