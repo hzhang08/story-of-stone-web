@@ -45,7 +45,7 @@ export default function GameReplay({ filename, gameMoves, boardSize, onClose }) 
     .map(([m, v]) => ({ move: parseInt(m), ...v }))
     .sort((a, b) => a.move - b.move);
 
-  const currentTopMoves = showAnalysis ? (fileTopMoves[currentMove] ?? []) : [];
+  const currentTopMoves = fileTopMoves[currentMove] ?? [];
 
   const handleKey = useCallback((e) => {
     if (e.key === 'ArrowRight') setCurrentMove(m => Math.min(m + 1, maxMove));
