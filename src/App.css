@@ -360,7 +360,12 @@
 }
 
 .move-slider--mobile {
-  margin-top: 48px;
+  margin-top: 64px;
+}
+
+.controls-gap {
+  width: 32px;
+  flex-shrink: 0;
 }
 
 .replay-comment {

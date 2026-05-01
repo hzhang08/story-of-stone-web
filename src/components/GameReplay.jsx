@@ -82,6 +82,7 @@ export default function GameReplay({ filename, gameMoves, boardSize, onClose }) 
       <div className="replay-controls">
         <button onClick={() => setCurrentMove(0)}>⏮</button>
         <button onClick={() => setCurrentMove(m => Math.max(m - 1, 0))}>◀</button>
+        <span className="controls-gap" />
         <button onClick={() => setCurrentMove(m => Math.min(m + 1, maxMove))}>▶</button>
         <button onClick={() => setCurrentMove(maxMove)}>⏭</button>
         <span className="move-counter">Move {currentMove} / {maxMove}</span>

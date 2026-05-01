@@ -21,25 +21,21 @@ export default function GoBoard({ boardSize = 19, stones = [], lastMove = null, 
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
-    // Use CSS-computed width when container controls the size (e.g. position cards),
-    // otherwise fall back to the explicit size prop (e.g. replay modal).
-    const cssWidth = canvas.clientWidth;
-    const displaySize = cssWidth > 0 ? cssWidth : size;
-    canvas.width = displaySize * dpr;
-    canvas.height = displaySize * dpr;
-    canvas.style.width = displaySize + 'px';
-    canvas.style.height = displaySize + 'px';
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    canvas.style.width = size + 'px';
+    canvas.style.height = size + 'px';
     ctx.scale(dpr, dpr);
 
-    const pad = displaySize / (boardSize + 1);
-    const spacing = (displaySize - 2 * pad) / (boardSize - 1);
+    const pad = size / (boardSize + 1);
+    const spacing = (size - 2 * pad) / (boardSize - 1);
 
     function gridX(col) { return pad + col * spacing; }
     function gridY(row) { return pad + row * spacing; }
 
     // Board background
     ctx.fillStyle = BOARD_COLOR;
-    ctx.fillRect(0, 0, displaySize, displaySize);
+    ctx.fillRect(0, 0, size, size);
 
     // Grid lines
     ctx.strokeStyle = LINE_COLOR;
