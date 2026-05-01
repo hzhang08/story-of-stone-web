@@ -355,7 +355,9 @@
 }
 
 .move-slider {
-  width: 100%;
+  width: calc(100% - 48px);
+  margin-left: 24px;
+  margin-right: 24px;
   accent-color: #f2d08f;
 }
 
