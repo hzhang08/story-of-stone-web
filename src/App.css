@@ -359,6 +359,10 @@
   accent-color: #f2d08f;
 }
 
+.move-slider--mobile {
+  margin-top: 24px;
+}
+
 .replay-comment {
   max-width: 480px;
   font-size: 13px;

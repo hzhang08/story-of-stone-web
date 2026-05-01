@@ -34,7 +34,6 @@ function useIsMobile() {
 export default function GameReplay({ filename, gameMoves, boardSize, onClose }) {
   const maxMove = gameMoves.reduce((m, gm) => Math.max(m, gm.moveNumber), 0);
   const [currentMove, setCurrentMove] = useState(maxMove);
-  const [playing, setPlaying] = useState(false);
   const [showAnalysis, setShowAnalysis] = useState(false);
   const [mobileTab, setMobileTab] = useState('board'); // 'board' | 'analysis'
   const isMobile = useIsMobile();
@@ -47,13 +46,6 @@ export default function GameReplay({ filename, gameMoves, boardSize, onClose }) 
     .sort((a, b) => a.move - b.move);
 
   const currentTopMoves = showAnalysis ? (fileTopMoves[currentMove] ?? []) : [];
-
-  useEffect(() => {
-    if (!playing) return;
-    if (currentMove >= maxMove) { setPlaying(false); return; }
-    const timer = setTimeout(() => setCurrentMove(m => m + 1), 400);
-    return () => clearTimeout(timer);
-  }, [playing, currentMove, maxMove]);
 
   const handleKey = useCallback((e) => {
     if (e.key === 'ArrowRight') setCurrentMove(m => Math.min(m + 1, maxMove));
@@ -90,7 +82,6 @@ export default function GameReplay({ filename, gameMoves, boardSize, onClose }) 
       <div className="replay-controls">
         <button onClick={() => setCurrentMove(0)}>⏮</button>
         <button onClick={() => setCurrentMove(m => Math.max(m - 1, 0))}>◀</button>
-        <button onClick={() => setPlaying(p => !p)}>{playing ? '⏸' : '▶'}</button>
         <button onClick={() => setCurrentMove(m => Math.min(m + 1, maxMove))}>▶</button>
         <button onClick={() => setCurrentMove(maxMove)}>⏭</button>
         <span className="move-counter">Move {currentMove} / {maxMove}</span>
@@ -98,7 +89,7 @@ export default function GameReplay({ filename, gameMoves, boardSize, onClose }) 
       <input
         type="range" min={0} max={maxMove} value={currentMove}
         onChange={e => setCurrentMove(+e.target.value)}
-        className="move-slider"
+        className={`move-slider${isMobile ? ' move-slider--mobile' : ''}`}
       />
       {currentComment && (
         <div className="replay-comment">{currentComment.split('_')[0]}</div>
