@@ -12,8 +12,10 @@ const SGF_FILES = [
   '[妙手与俗手]vs[blockchain]1754185785030051585.sgf',
   '[一周七盘]vs[blockchain]1754274299030012914.sgf',
   '[113谢大大]vs[blockchain]1754370366030051998.sgf',
+  '[blockchain]vs[newyear689]1779152661030041740.sgf',
   '[blockchain]vs[金刚石1111]1754460202030052828.sgf',
   '[blockchain]vs[如风岁月19]1754358938030012891.sgf',
+  '[blockchain]vs[陈逸凡01]1779238521030041232.sgf',
   '[V530857008]vs[blockchain]1754808565030054811.sgf',
   '[雄鹰zcg]vs[blockchain]1754631964030031226.sgf',
 ];
