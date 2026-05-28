@@ -5,6 +5,8 @@ const SGF_FILES = [
   'Edmund-Hong.sgf',
   'Hong-eric.sgf',
   'Hong-qiyou.sgf',
+  'hong-ding.sgf',
+  'hong-max-contest.sgf',
   'hong-wangjia.sgf',
   'max-hong.sgf',
   'test-hong.sgf',
