@@ -5,10 +5,14 @@ const SGF_FILES = [
   'Edmund-Hong.sgf',
   'Hong-eric.sgf',
   'Hong-qiyou.sgf',
+  'V53.sgf',
+  'arroganer.sgf',
+  'chengyi.sgf',
   'hong-ding.sgf',
   'hong-max-contest.sgf',
   'hong-wangjia.sgf',
   'max-hong.sgf',
+  'mznxb.sgf',
   'test-hong.sgf',
   'wanqi-henry.sgf',
   '[妙手与俗手]vs[blockchain]1754185785030051585.sgf',
@@ -20,6 +24,8 @@ const SGF_FILES = [
   '[blockchain]vs[陈逸凡01]1779238521030041232.sgf',
   '[V530857008]vs[blockchain]1754808565030054811.sgf',
   '[雄鹰zcg]vs[blockchain]1754631964030031226.sgf',
+  '[随着16]vs[blockchain]1779420094030060398.sgf',
+  '[麻将12]vs[blockchain]1779418746030041500.sgf',
 ];
 
 export function useAppState() {
