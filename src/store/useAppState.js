@@ -13,6 +13,7 @@ const SGF_FILES = [
   'hong-wangjia.sgf',
   'max-hong.sgf',
   'mznxb.sgf',
+  'rex.sgf',
   'test-hong.sgf',
   'wanqi-henry.sgf',
   '[妙手与俗手]vs[blockchain]1754185785030051585.sgf',
